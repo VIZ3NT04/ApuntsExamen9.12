@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ExamGPT</string>
+
+    <string name="fragments">DINAMIC FRAGMENTS</string>
+    <string name="welcome"><![CDATA[Welcome to my travels <3]]></string>
+    <string name="avanzar">Next</string>
+</resources>

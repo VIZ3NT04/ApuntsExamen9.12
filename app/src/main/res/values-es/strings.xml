@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExamenGPT</string>
+    <string name="fragments">FRAGMENTS DINAMICOS</string>
+    <string name="welcome"><![CDATA[Bienvenido a mis viajes <3]]></string>
+    <string name="avanzar">Siguiente</string>
+</resources>
