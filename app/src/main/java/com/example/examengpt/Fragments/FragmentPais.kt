@@ -19,7 +19,7 @@ class FragmentPais : Fragment(), OnCiudadSelected {
 
     // Declaración de variables:
     private lateinit var binding: FragmentPaisBinding // Para acceder al diseño del fragmento (fragment_pais.xml)
-    private var pais: Pais? = null // Objeto que representa el país seleccionado
+    private lateinit var pais: Pais // Objeto que representa el país seleccionado
     private lateinit var ciudadAdapter: CiudadAdapter // Adaptador para manejar la lista de ciudades
     private lateinit var linearLayoutManager: LinearLayoutManager // LayoutManager para el RecyclerView
 
@@ -32,7 +32,7 @@ class FragmentPais : Fragment(), OnCiudadSelected {
         binding = FragmentPaisBinding.inflate(inflater, container, false)
 
         // Recuperamos el objeto 'pais' enviado como argumento al fragmento
-        pais = arguments?.getSerializable("pais") as? Pais
+        pais = arguments?.getSerializable("pais") as Pais
 
         // Devolvemos la raíz del diseño vinculado
         return binding.root
@@ -45,7 +45,7 @@ class FragmentPais : Fragment(), OnCiudadSelected {
         // Verificamos si el país no es nulo (es decir, se pasó correctamente como argumento)
         if (pais != null) {
             // Inicializamos el adaptador con la lista de ciudades del país y la interfaz OnCiudadSelected
-            ciudadAdapter = CiudadAdapter(pais!!.getCiudades(), this)
+            ciudadAdapter = CiudadAdapter(pais.getCiudades(), this)
 
             // Configuramos un LayoutManager para manejar la disposición de los elementos en el RecyclerView
             linearLayoutManager = LinearLayoutManager(requireContext())
