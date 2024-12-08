@@ -48,11 +48,11 @@ class FragmentRecycle : Fragment(), OnClickListener {
     }
 
     override fun onClick(pais: Pais) {
-        //Toast.makeText(requireContext(), "Has selecionado ${pais.getNombre()}", Toast.LENGTH_SHORT).show()
+        // Hacemos el dialogo personalizado en la funcion del OnClickListener (inteface)
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Quieres entrar a ${pais.getNombre()}?")
             .setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, i ->
-                //Fer el accept
+                //Fer el accept y recoger el objeto pais ( La clase pais tiene que estar en Serializable)
                 val fragmentPais = FragmentPais()
                 val bundle = Bundle()
                 bundle.putSerializable("pais",pais)
@@ -63,6 +63,7 @@ class FragmentRecycle : Fragment(), OnClickListener {
             .show()
     }
     private fun loadFragment(fragment: Fragment) {
+        // Revisamos si estamos en tablet o el movil
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         isTablet = mainBinding.contenedorFragmentSpinner != null
 

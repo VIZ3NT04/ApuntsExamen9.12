@@ -16,6 +16,7 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        // Inicializar el binding
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -25,12 +26,13 @@ class WelcomeActivity : AppCompatActivity() {
             insets
         }
 
-
+        // Para cambiar la vista a traves del boton
         binding.btnNext.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
+        // Para poner una animacion
         var imagen=findViewById<LottieAnimationView>(R.id.imagenEjemplo)
         var click=false
 

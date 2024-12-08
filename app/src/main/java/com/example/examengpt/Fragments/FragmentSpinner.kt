@@ -31,7 +31,7 @@ class FragmentSpinner : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Set up the spinner here
+        // Montamos el spinner con sus datos
         val datos = arrayOf("Fragment de color Raphael", "Fragment de Leonardo", "Fragment de Mikelangelo","Fragment de Donatello")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, datos)
         val spinner = binding.cmbOpciones
@@ -39,6 +39,7 @@ class FragmentSpinner : Fragment() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
+        // Condiciones si esta seleccionado
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
