@@ -10,9 +10,12 @@ import com.airbnb.lottie.LottieAnimationView
 import com.example.examengpt.R
 import com.example.examengpt.databinding.ActivityMainBinding
 import com.example.examengpt.databinding.ActivityWelcomeBinding
+import com.example.examengpt.databinding.DialogoPersonalizadoBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
+    private lateinit var dialogoBinding: DialogoPersonalizadoBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -46,7 +49,24 @@ class WelcomeActivity : AppCompatActivity() {
              imageView.setAnimation(animacion)
              imageView.playAnimation()
          } else {
-             imageView.setImageResource(R.drawable.icono)
+             //imageView.setImageResource(R.drawable.icono)
+             dialogoBinding = DialogoPersonalizadoBinding.inflate(layoutInflater)
+
+             // Configurar el texto directamente en el binding
+             dialogoBinding.primerTexto.text = "Hecho por VIZ3NT04"
+             dialogoBinding.segundoTexto.text = "https://github.com/VIZ3NT04/ApuntsExamen9.12.git"
+
+             // Crear el diálogo con la vista del binding
+             val dialog = MaterialAlertDialogBuilder(this)
+                 .setTitle("Título del Diálogo")
+                 .setView(dialogoBinding.root) // Usar la raíz del binding
+                 .show()
+
+             // Configurar el botón de cierre en el binding
+             dialogoBinding.btnDialogo.setOnClickListener {
+                 dialog.dismiss() // Cerrar el diálogo correctamente
+             }
+
          }
          return !click
      }
